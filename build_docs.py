@@ -41,16 +41,17 @@ import shutil
 BRANCHES = [
     # version, git branch, isdev
     (3.6, '3.6', False),
-    (3.7, '3.7', True),
-    (3.8, 'master', True),
-    (2.7, '2.7', False)
+    #(3.7, '3.7', True),
+    #(3.8, 'master', True),
+    #(2.7, '2.7', False)
 ]
 
 LANGUAGES = [
-    'en',
-    'fr',
-    'ja',
-    'ko'
+    #'en',
+    #'fr',
+    #'ja',
+    #'ko',
+    'zh',
 ]
 
 SPHINXOPTS = {
@@ -58,6 +59,9 @@ SPHINXOPTS = {
            '-D latex_elements.inputenc=',
            '-D latex_elements.fontenc='],
     'ko': ['-D latex_engine=platex',
+           '-D latex_elements.inputenc=',
+           '-D latex_elements.fontenc='],
+    'zh': ['-D latex_engine=platex',
            '-D latex_elements.inputenc=',
            '-D latex_elements.fontenc='],
     'fr': ['-D latex_engine=xelatex',
@@ -193,6 +197,8 @@ def build_one(version, git_branch, isdev, quick, venv, build_root, www_root,
             locale_dirs, gettext_language_tag, 'LC_MESSAGES')
         locale_repo = 'https://github.com/python/python-docs-{}.git'.format(
             language)
+        if language == 'zh':
+            locale_repo = 'https://github.com/nobodxbodon/python-docs-ko.git'
         git_clone(locale_repo, locale_clone_dir,
                   translation_branch(locale_repo, locale_clone_dir,
                                      version))
