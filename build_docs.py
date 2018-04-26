@@ -205,7 +205,8 @@ def build_one(version, git_branch, isdev, quick, venv, build_root, www_root,
         sphinxopts.extend((
             '-D locale_dirs={}'.format(locale_dirs),
             '-D language={}'.format(gettext_language_tag),
-            '-D gettext_compact=0'))
+            '-D gettext_compact=0',
+            '-D gettext_additional_targets=literal-block'))
     os.makedirs(target, exist_ok=True)
     try:
         os.chmod(target, 0o775)
