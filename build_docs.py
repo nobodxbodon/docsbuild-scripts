@@ -198,7 +198,7 @@ def build_one(version, git_branch, isdev, quick, venv, build_root, www_root,
         locale_repo = 'https://github.com/python/python-docs-{}.git'.format(
             language)
         if language == 'zh':
-            locale_repo = 'https://github.com/nobodxbodon/python-docs-ko.git'
+            locale_repo = 'https://github.com/nobodxbodon/python-docs-zh.git'
         git_clone(locale_repo, locale_clone_dir,
                   translation_branch(locale_repo, locale_clone_dir,
                                      version))
